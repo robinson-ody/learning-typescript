@@ -23,11 +23,14 @@ type Numeric = number | boolean;
 
 type Universal = Combineable & Numeric;
 
-const addFn = (a: Combineable, b: Combineable) => {
-  // if (typeof a === 'string' || typeof b === 'string') return a.toString() + b.toString();
-  // return a + b;
-  return Number(a) + Number(b);
-};
+function addFn(a: number, b: number): number;
+function addFn(a: Combineable, b: Combineable) {
+  if (typeof a === 'string' || typeof b === 'string') return a.toString() + b.toString();
+  return a + b;
+  // return Number(a) + Number(b);
+}
+
+const hasil = addFn(1, 2);
 
 type UnknownEmployee = Admin | Employee;
 
