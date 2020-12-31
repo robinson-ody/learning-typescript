@@ -61,26 +61,26 @@ function Log4(target: any, name: string | Symbol, position: number) {
   console.log(position);
 }
 
-function Autobind(_target: any, _methodName: string, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
+// function Autobind(_target: any, _methodName: string, descriptor: PropertyDescriptor) {
+//   const originalMethod = descriptor.value;
 
-  const adjMethod: PropertyDescriptor = {
-    configurable: true,
-    enumerable: true,
+//   const adjMethod: PropertyDescriptor = {
+//     configurable: true,
+//     enumerable: true,
 
-    get() {
-      const boundFn = originalMethod.bind(this);
-      return boundFn;
-    },
-  };
+//     get() {
+//       const boundFn = originalMethod.bind(this);
+//       return boundFn;
+//     },
+//   };
 
-  return adjMethod;
-}
+//   return adjMethod;
+// }
 
 class Printer {
   message = 'This works!';
 
-  @Autobind
+  // @Autobind
   showMessage() {
     console.log(this.message);
   }
